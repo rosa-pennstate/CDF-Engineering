@@ -48,13 +48,28 @@ body, html {
     <span class="w3-tag">Est. 2019</span>
   </div>
   <div class="w3-display-middle w3-center">
-    <span id="main-header" style="font-size:90px">WORK FOR US</span>
+    <span id="main-header" style="font-size:60px">WORK FOR US</span>
   </div>
 </header>
 
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <p>We are always looking for new and talented engineers/chefs/canines etc to add to
+	   our team. If you have a skill of any sort, you may be a great addition to our team. 
+	   Enter you name below to begin the hiring process.</p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="First Name" required name="FirstName"></p>
+	  <p><input id="lastname" class="w3-input w3-padding-16 w3-border" type="text" placeholder="Last Name" required name="LastName"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Phone Number" required name="phone"></p>
+      <p><button id="submit" class="w3-button w3-black">SUBMIT</button></p>
+	<span id="outputtext"> </span>
+  </div>
+</div>
 
+<!-- End page content -->
+</div>
 
 <!-- End page content -->
 </div>
@@ -62,6 +77,22 @@ body, html {
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
 </footer>
+<script>
+var text = "Thank You! We are considering you're application";
+var noText = "You're last name does not start with C,D, or F and we are not " +
+         "considering renaming the company. Sorry.";
+var outText = document.getElementById("outputtext");
+var onButtonClick = function() {
+    var last = document.getElementById("lastname").value;
+	if (last.startsWith('C') || last.startsWith('D') || last.startsWith('F')){
+	    outText.innerHTML = text;
+	} else{
+		outText.innerHTML = noText;
+	}
+};
+var submit = document.getElementById("submit");
+submit.addEventListener("click", onButtonClick);
 
+</script>
 </body>
 </html>
